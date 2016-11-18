@@ -1,0 +1,11 @@
+<form (ngSubmit)="login(form)" #form="ngForm" novalidate>
+    <input
+            type="text"
+            placeholder="Username"
+            class="u-full-width" [(ngModel)]="form.username" name="username">
+    <input
+            type="password"
+            placeholder="Password"
+            class="u-full-width" [(ngModel)]="form.password" name="password">
+    <button type="submit" class="button-primary u-pull-right">Iniciar Sesión</button>
+</form>
