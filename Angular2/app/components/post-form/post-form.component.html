@@ -19,7 +19,7 @@
     <input
         type="text"
         placeholder="Título"
-        class="u-full-width" [(ngModel)]="form.title" name="title">
+        class="u-full-width" required [(ngModel)]="form.title" name="title">
     <!--
     |-------------------------------------------------------------------------------------------------|
     | Purple Path                                                                                     |
@@ -31,7 +31,7 @@
     <textarea
         placeholder="Introduce tu historia"
         class="u-full-width georgia-font"
-        autogrow [(ngModel)]="form.intro" name="intro"></textarea>
+        autogrow required [(ngModel)]="form.intro" name="intro"></textarea>
     <!--
     |-------------------------------------------------------------------------------------------------|
     | Purple Path                                                                                     |
@@ -43,7 +43,7 @@
     <textarea
         placeholder="Cuenta tu historia"
         class="u-full-width georgia-font"
-        autogrow [(ngModel)]="form.body" name="body"></textarea>
+        autogrow required [(ngModel)]="form.body" name="body"></textarea>
     <div>
         <div>
             <label (click)="setScheduling(false)">

@@ -21,7 +21,10 @@ export class LogInComponent implements OnDestroy{
     }
 
     ngOnDestroy(){
-        this._userSubscription.unsubscribe();
+        if (typeof this._userSubscription !== 'undefined'){
+            this._userSubscription.unsubscribe();
+        }
+
     }
 
     login(form: FormGroup){

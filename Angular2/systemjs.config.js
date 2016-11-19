@@ -16,7 +16,8 @@
       "@angular/forms": "npm:@angular/forms/bundles/forms.umd.js",
       "rxjs": "npm:rxjs",
       "angular-in-memory-web-api": "npm:angular-in-memory-web-api",
-      'ng2-webstorage': 'npm:ng2-webstorage'
+      'ng2-webstorage': 'npm:ng2-webstorage',
+      'ng2-responsive': 'npm:ng2-responsive'
     },
     "packages": {
       "app": {
@@ -36,6 +37,10 @@
       },
       'ng2-webstorage': {
         "main": './bundles/core.umd.js',
+        "defaultExtension": 'js'
+      },
+      'ng2-responsive': {
+        "main": './index.js',
         "defaultExtension": 'js'
       }
     }

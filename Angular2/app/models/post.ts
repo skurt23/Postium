@@ -12,8 +12,9 @@ export class Post {
         public publicationDate: any,
         public categories: Category[],
         public author: User,
-        public likes: number,
-        public ratings: number
+        public likes: any,
+        public ratings: number,
+        public visible: boolean = false
     ) { }
 
     static fromJson(json: any): Post {

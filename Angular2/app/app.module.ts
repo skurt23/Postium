@@ -1,4 +1,4 @@
-import { BrowserModule } from "@angular/platform-browser";
+import {BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG} from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import {HttpModule, JsonpModule} from "@angular/http";
 import { NgModule } from "@angular/core";
@@ -36,6 +36,16 @@ import {EditPostComponent} from "./components/edit-post/edit-post.component";
 import {LogInComponent} from "./components/login/login.component";
 import {UserService} from "./services/user.service";
 import {Ng2Webstorage} from "ng2-webstorage";
+import {ResponsiveModule} from "ng2-responsive";
+import {LikeComponent} from "./components/like/like.component";
+
+export class MyHammerConfig extends HammerGestureConfig  {
+    overrides = <any>{
+        'swipe': {velocity: 0.4, threshold: 20},// override default settings
+        'pinch': {enable:true}
+    };
+    events: string[] = ['pinch'];
+}
 
 @NgModule({
     imports: [
@@ -46,6 +56,7 @@ import {Ng2Webstorage} from "ng2-webstorage";
         HttpModule,
         JsonpModule,
         Ng2Webstorage,
+        ResponsiveModule,
     ],
 
     /*-----------------------------------------------|
@@ -61,6 +72,7 @@ import {Ng2Webstorage} from "ng2-webstorage";
         CategoryPostsComponent,
         EditPostComponent,
         HeaderBarComponent,
+        LikeComponent,
         LogInComponent,
         LogOutComponent,
         NewsComponent,
@@ -81,6 +93,10 @@ import {Ng2Webstorage} from "ng2-webstorage";
         PostService,
         PostsResolve,
         UserService,
+        {
+            provide: HAMMER_GESTURE_CONFIG,
+            useClass: MyHammerConfig
+        }
     ],
     bootstrap: [
         AppComponent

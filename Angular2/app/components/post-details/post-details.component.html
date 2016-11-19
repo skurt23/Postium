@@ -21,6 +21,7 @@
         <span class="date">{{ post.publicationDate | fromNow}}</span>
     </div>
     <button *ngIf="logged"  class="u-pull-right" type="button" (click)="editPost(post)">Edit</button>
+    <like class="u-pull-right" (click)="likeClicked(post)" [post]="post"></like>
 </div>
 <div class="post">
     <h3>{{ post.title }}</h3>

@@ -9,6 +9,8 @@ from posts.permissions import PostPermission
 from posts.serializers import PostListSerializer, PostSerializer
 from posts.views import PostQueryset, PostListApiQueryset, PostCategoryQueryset
 
+from posts.models import Post
+
 
 class PostDetailViewSet(ModelViewSet):
     """
@@ -39,16 +41,12 @@ class PostDetailViewSet(ModelViewSet):
 
     def perform_update(self, serializer):
         user = User.objects.filter(username=self.kwargs['username'])
-        return serializer.save(author=user[0])
+        post = Post.objects.filter(pk=self.kwargs['pk'])
+        print(post[0].author)
+        return serializer.save(author=post[0].author)
 
 class PostCategoryViewSet(ModelViewSet):
-    """
-    Endpoint de artículos. Un usuario no autenticado sólo podrá ver los artículos publicados
 
-    Para crear un artículo tendrás que estar autenticado y el artículo se publicará inmediatamente en tu blog.
-
-    Si se desea actualizar o eliminar un artículo debe hacerlo el propietario de ese artículo o un administrador
-    """
     permission_classes = (IsAuthenticatedOrReadOnly, PostPermission)
     search_fields = ('title', 'intro',)
     order_fields = ('title', 'publication_date', 'categories')

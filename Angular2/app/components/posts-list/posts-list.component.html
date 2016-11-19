@@ -15,5 +15,26 @@
 | en él para notificar los clics sobre los posts.                          |
 |--------------------------------------------------------------------------|
 -->
+<div *showItBootstrap="['xs', 'sm', 'md']" class="">
+    <div class="swipe-box"
+         *ngFor="let post of posts | title: searchPost; let idx=index"
+         (swipeleft)="swipe(idx, $event.type)"
+         (swiperight)="swipe(idx, $event.type)"
+         [class.visible]="post.visible"
+         [hidden]="!post.visible">
+        <post-preview [post]="post"
+                      (authorSelected)="showAuthorPosts($event)"
+                      (postSelected)="showPostDetail($event)">
+        </post-preview>
+    </div>
 
-<post-preview *ngFor="let post of posts | title: searchPost" [post]="post" (authorSelected)="showAuthorPosts($event)" (postSelected)="showPostDetail($event)"></post-preview>
+</div>
+<div *lg>
+    <post-preview *ngFor="let post of posts | title: searchPost"
+                  [post]="post"
+                  (authorSelected)="showAuthorPosts($event)"
+                  (postSelected)="showPostDetail($event)">
+
+    </post-preview>
+</div>
+

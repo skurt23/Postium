@@ -26,6 +26,7 @@ export class UserService{
             .map((response:Response) => {
                 var token = response.json().key;
                 this._sessionStorage.store('auth_token', token);
+                this._sessionStorage.store('username', username);
             });
     }
 
@@ -36,6 +37,7 @@ export class UserService{
         return this._http.post(`http://localhost:8000/rest-auth/logout/`, JSON.stringify(tokenJson))
             .map((response:Response) => {
                 this._sessionStorage.clear('auth_token');
+                this._sessionStorage.clear('username');
             });
     }
 }

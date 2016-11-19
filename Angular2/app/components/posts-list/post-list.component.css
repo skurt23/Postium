@@ -1,0 +1,12 @@
+.swipe-box {
+    display: block;
+    transform: .5s ease .1s;
+}
+
+.swipe-box.visible {
+    display: block;
+}
+
+.swipe-box.hidden {
+    display: none;
+}

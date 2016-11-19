@@ -6,6 +6,7 @@ import {Category} from "../../models/category";
 import {User} from "../../models/user";
 import {SessionStorage, SessionStorageService} from "ng2-webstorage";
 import {Subscription} from "rxjs";
+import {PostService} from "../../services/post.service";
 
 @Component({
     templateUrl: "./app/components/post-details/post-details.component.html",
@@ -15,15 +16,17 @@ export class PostDetailsComponent implements OnInit {
 
     post: Post;
     @SessionStorage('auth_token') authToken;
+    @SessionStorage('username') username;
     logged: boolean = false;
     userAuth: Subscription;
 
-    constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _sessionStorage: SessionStorageService) { }
+    constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
+                private _sessionStorage: SessionStorageService, private _postService: PostService) { }
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
         window.scrollTo(0, 0);
-        if (this.authToken !== null){
+        if (this.authToken !== null && this.username === this.post.author.username){
             this.logged = true;
         }else{
             this.logged = false;
@@ -79,5 +82,26 @@ export class PostDetailsComponent implements OnInit {
 
     editPost(post: Post){
         this._router.navigate(['/edit-post/' + post.author.username + '/' + post.id])
+    }
+
+    likeClicked(post: Post){
+
+        var likes = post.likes;
+        var newLike={user: {username: this.username}}
+        likes.push(newLike);
+        var postJson = {
+            id: post.id,
+            title: post.title,
+            intro: post.intro,
+            body: post.body,
+            publication_date: post.publicationDate,
+            author: post.author,
+            likes: likes,
+            ratings: post.ratings,
+            media: post.media,
+            categoriees:post.categories,
+        };
+
+        this._postService.updatePost(postJson).subscribe((response) => console.log(response));
     }
 }
