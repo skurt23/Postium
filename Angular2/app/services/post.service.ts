@@ -161,6 +161,7 @@ export class PostService {
         }
         let headers = new Headers({ 'Content-Type': 'application/json' });
         headers.append('Authorization', `Token ${this.authToken}`);
+        console.log(JSON.stringify(post));
         return this._http.put(`${this._backendUri}/posts/${post.author.username}/${post.id}/`, JSON.stringify(post), {headers: headers})
             .map((response:Response) => Post.fromJson(response.json()))
     }

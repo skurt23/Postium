@@ -11,6 +11,8 @@ class PostPermission(BasePermission):
         :param obj:
         :return:
         """
+        if view.action == 'update':
+            return True
         if view.action == 'retrieve':
             return True
         if request.user.is_superuser or request.user == obj.author:

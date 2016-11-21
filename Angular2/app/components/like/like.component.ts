@@ -15,11 +15,10 @@ export class LikeComponent implements OnInit{
 
     @Input() post: Post;
     @SessionStorage('username') username;
-    disabled: boolean;
+    disabled: boolean = false;
 
     ngOnInit(){
-        console.log(this.post.likes);
-        this.disabled = false;
+
         for (var i in this.post.likes){
             if (this.post.likes[i].user.username === this.username){
                 this.disabled = true;
@@ -28,8 +27,8 @@ export class LikeComponent implements OnInit{
         }
     }
 
-    ngOnChanges(changes: any){
-        console.log(changes);
+    disable(){
+        this.disabled = true
     }
 
 }

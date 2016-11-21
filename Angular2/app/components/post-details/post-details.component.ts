@@ -16,6 +16,7 @@ export class PostDetailsComponent implements OnInit {
 
     post: Post;
     @SessionStorage('auth_token') authToken;
+    @SessionStorage('user_id') userID;
     @SessionStorage('username') username;
     logged: boolean = false;
     userAuth: Subscription;
@@ -86,9 +87,12 @@ export class PostDetailsComponent implements OnInit {
 
     likeClicked(post: Post){
 
-        var likes = post.likes;
-        var newLike={user: {username: this.username}}
-        likes.push(newLike);
+
+        var likes = this.post.likes;
+        var newLike={"user":"this.userID"};
+        if (!likes.includes(newLike)){
+            likes.push(newLike);
+        }
         var postJson = {
             id: post.id,
             title: post.title,
@@ -96,7 +100,7 @@ export class PostDetailsComponent implements OnInit {
             body: post.body,
             publication_date: post.publicationDate,
             author: post.author,
-            likes: likes,
+            likes: [newLike],
             ratings: post.ratings,
             media: post.media,
             categoriees:post.categories,

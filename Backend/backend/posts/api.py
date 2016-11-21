@@ -42,7 +42,6 @@ class PostDetailViewSet(ModelViewSet):
     def perform_update(self, serializer):
         user = User.objects.filter(username=self.kwargs['username'])
         post = Post.objects.filter(pk=self.kwargs['pk'])
-        print(post[0].author)
         return serializer.save(author=post[0].author)
 
 class PostCategoryViewSet(ModelViewSet):

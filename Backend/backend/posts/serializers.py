@@ -21,14 +21,13 @@ class PostSerializer(serializers.ModelSerializer):
         category_data = validated_data.pop('categoriees')
         post = Post.objects.create(**validated_data)
         for data_category in category_data:
-            print(data_category)
             category = Category.objects.get(name=data_category['name'])
             category.posts.add(post)
         return post
 
     def update(self, instance, validated_data):
         category_data = validated_data.pop('categoriees')
-        likes_data = validated_data.pop('likes')
+        likes_data = validated_data['likes']
         instance.title = validated_data['title']
         instance.intro = validated_data['intro']
         instance.body = validated_data['body']
@@ -37,7 +36,12 @@ class PostSerializer(serializers.ModelSerializer):
             category = Category.objects.get(name=data_category['name'])
             category.posts.add(instance)
         for data_like in likes_data:
-            like = Like.objects.create(**data_like)
+            print(self._context['request'].user.id)
+            user = User.objects.get(pk=self._context['request'].user.id)
+            like = Like.objects.get(user=user)
+            print(like)
+            if not like:
+                like = Like.objects.create(user=user)
             like.likes.add(instance)
         instance.save()
         return instance
