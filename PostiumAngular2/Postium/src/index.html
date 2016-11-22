@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Postium</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="resources/icons/favicon.ico">
+    <!-- Styles -->
+    <link rel="stylesheet" href="resources/css/normalize.css">
+    <link rel="stylesheet" href="resources/css/skeleton.css">
+    <link rel="stylesheet" href="resources/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <!-- Scripts -->
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="http://cdn.rawgit.com/hammerjs/touchemulator/master/touch-emulator.js"></script>
+    <script src="https://use.fontawesome.com/859617c609.js"></script>
+    <script>
+        TouchEmulator();
+    </script>
+
+    <!-- Hammer JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+</head>
+<body>
+    <!-- Root component -->
+    <app></app>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
+          console.log('Service Worker registered');
+        }).catch(function(err) {
+          console.log('Service Worker registration failed: ', err);
+        });
+      }
+    </script>
+</body>
+</html>

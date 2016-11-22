@@ -36,10 +36,8 @@ class PostSerializer(serializers.ModelSerializer):
             category = Category.objects.get(name=data_category['name'])
             category.posts.add(instance)
         for data_like in likes_data:
-            print(self._context['request'].user.id)
             user = User.objects.get(pk=self._context['request'].user.id)
             like = Like.objects.get(user=user)
-            print(like)
             if not like:
                 like = Like.objects.create(user=user)
             like.likes.add(instance)
@@ -83,11 +81,8 @@ class PostListSerializer(PostSerializer):
 
     def create(self, validated_data):
         category_data = validated_data.pop('categoriees')
-        print(category_data)
         post = Post.objects.create(**validated_data)
-        print(validated_data)
         for data_category in category_data:
-            print(data_category)
             category = Category.objects.get(name=data_category['name'])
             category.posts.add(post)
         return post

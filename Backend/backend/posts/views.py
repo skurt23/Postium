@@ -39,13 +39,10 @@ class PostListApiQueryset(object):
     @staticmethod
     def get_articles_by_user(user, username):
         post = Post.objects.all().select_related("author")
-        print(user)
         if not user.is_authenticated():
             post = post.filter(publication_date__lte=timezone.now())
-            print('hola')
         elif not user.is_superuser:
             post = post.filter(publication_date__lte=timezone.now())
-            print('adios')
         else:
             post = Post.objects.all()
         return post
