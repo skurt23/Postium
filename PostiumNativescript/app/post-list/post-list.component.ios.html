@@ -17,7 +17,7 @@
                 <StackLayout (tap)="showAuthorPosts(item)"class="authorCell" orientation="horizontal">
                     <Image [src]="'~/shared/' + item.author.avatar" height="50" width="50" style="border-radius: 25px"></Image>
                     <StackLayout class="authorDetailsCell" orientation="vertical">
-                        <Label class="authorLabel" [text]="item.author.firstName + item.author.lastName"></Label>
+                        <Label class="authorLabel" [text]="item.author.firstName + ' ' + item.author.lastName"></Label>
                         <Label class="pubDateLabel" [text]="item.publicationDate | fromNow"></Label>
                     </StackLayout>
                 </StackLayout>

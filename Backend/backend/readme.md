@@ -17,3 +17,19 @@ Para poder usar esta API-REST, tiene que seguir los siguiente pasos:
 * Una vez instaladas las dependencias ejecutamos el comando:
 
     ```python manage.py runserver```
+    
+## Usuarios
+
+Puede crear usuarios desde el admin de Django porque las apps todavía no incluyen el registro de usuarios, pero puede usar uno de los que dejo a continuación:
+
+Username(admin): skurt
+Password: keepcoder
+
+Username: keepcoder
+Password: angular2
+
+Username: bOoKeRdEwItT
+Password: keepcoder
+
+Username: godhatesusall
+Password: keepcoder
