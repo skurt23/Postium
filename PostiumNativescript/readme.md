@@ -20,3 +20,11 @@ Para poder usar la app, primero tienes que instalar Nativescript CLI, como indic
   ```tns livesync ios --emulator --watch```
 
   ```tns livesync android --emulator --watch```
+  
+## Proximas actualizaciones
+
+* Arreglar la versión de Android para que funciona
+
+* Incluir la creación y edición de posts a los autores de los posts
+
+* Incluir el sistema de likes
