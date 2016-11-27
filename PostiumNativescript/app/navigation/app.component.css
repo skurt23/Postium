@@ -1,0 +1,35 @@
+.fa {
+    font-family: FontAwesome;
+}
+.drawerContentText {
+    font-size: 13;
+    padding: 10;
+}
+
+.mainContent{
+    background-color: white;
+}
+
+.drawerContentButton {
+    margin: 10;
+}
+
+.sideStackLayout {
+    background-color: white;
+    border-right-width: 2;
+    border-right-color: grey;
+}
+
+.sideTitleStackLayout {
+    padding: 10;
+    text-align: center;
+}
+
+.sideLabel {
+    padding: 10;
+    color: #00ab6b;
+}
+
+.sideLightGrayLabel {
+    background-color: white;
+}

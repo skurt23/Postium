@@ -1,0 +1,22 @@
+<ScrollView>
+    <StackLayout class="listItemTemplateGrid" height="auto" rowHeight="50" >
+        <StackLayout (tap)="showAuthorPosts(post)" class="authorCell" orientation="horizontal">
+            <<<Image [src]="'~/shared/' + avatar" height="50" width="50" style="border-radius: 25px"></Image>
+            <StackLayout class="authorDetailsCell" orientation="vertical">
+                <Label class="authorLabel" [text]="firstName + ' ' + lastName"></Label>
+                <Label class="pubDateLabel" [text]="publicationDate | fromNow"></Label>
+            </StackLayout>
+        </StackLayout>
+        <Label class="cellLabel" textWrap="true" [text]="title" style="font-weight: bold; font-size: 32px"></Label>
+        <Image [src]="'~/shared/' + media" stretch="aspectFit" class="cellImage"></Image>
+        <StackLayout verticalAlignment="bottom">
+            <StackLayout class="labelsStackLayout">
+                <Label class="introLabel" textWrap="true" [text]="intro"></Label>
+                <Label class="bodyLabel" textWrap="true" [text]="body"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label class="category" *ngFor="let category of categories" [text]="category.name"(tap)="categoryClicked(category)"></Label>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

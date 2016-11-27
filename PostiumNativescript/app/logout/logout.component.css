@@ -1,0 +1,26 @@
+.fa{
+    font-family: FontAwesome;
+    font-size: 70px;
+    color: #00ab6b;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+.submitButton{
+    margin: 20px;
+    border-width: 1;
+    border-color: #00ab6b;
+    background-color: #00ab6b;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    float: right;
+    font-size: 20px;
+}
+
+StackLayout{
+    background-color: white;
+}
+
+.text{
+    margin: 10px;
+}

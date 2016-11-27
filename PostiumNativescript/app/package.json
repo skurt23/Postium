@@ -1,0 +1,36 @@
+{
+    "name": "postium",
+    "main": "app.module.js",
+    "version": "1.0.0",
+    "author": {
+        "name": "Alejandro M .Alberto",
+        "email": "alex.23p10@gmail.com"
+    },
+    "description": "Versión pobre de Medium",
+    "license": "Apache-2.0",
+    "keywords": [
+        "telerik",
+        "mobile",
+        "nativescript",
+        "{N}",
+        "tns",
+        "appbuilder",
+        "postium",
+        "template",
+        "angular2"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com/telerik/nativescript-ui-samples-angular.git"
+    },
+    "bugs": {
+        "url": "https://github.com/telerik/nativescript-ui-samples-angular/issues"
+    },
+    "homepage": "https://github.com/telerik/nativescript-ui-samples-angular",
+    "android": {
+        "v8Flags": "--expose_gc"
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "tns-template-hello-world@1.6.0",
+    "_from": "tns-template-hello-world@1.6.0"
+}

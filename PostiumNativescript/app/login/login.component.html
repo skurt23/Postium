@@ -1,0 +1,7 @@
+<ActionBar [title]="_title"></ActionBar>
+<StackLayout>
+    <Label class="fa" [text]="'fa-user-circle-o' | fonticon"></Label>
+    <TextField hint="Username" autocorrect="false" autocapitalizationType="none" [(ngModel)]="username"></TextField>
+    <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
+    <Button (tap)="login()" class="submitButton" text="Log In"></Button>
+</StackLayout>

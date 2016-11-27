@@ -1,0 +1,6 @@
+<ActionBar [title]="_title"></ActionBar>
+<StackLayout>
+    <Label class="fa" [text]="'fa-sign-out' | fonticon"></Label>
+    <Label class="text" textWrap="true" text="¿Estás seguro de querer cerrar la sesión?"></Label>
+    <Button (tap)="logout()" class="submitButton" text="Log Out"></Button>
+</StackLayout>

@@ -1,0 +1,35 @@
+<ActionBar (tap)="goToHome()" [title]="_title">
+</ActionBar>
+<StackLayout orientation="horizontal">
+    <Label class="fa" [text]="'fa-search' | fonticon"></Label>
+    <TextField class="searchInput"
+               hint="Search"
+               autocorrect="false"
+               returnKeyType="go"
+               (returnPress)="searchPost()"
+               [(ngModel)]="_search"
+               autocapitalizationType="none">
+    </TextField>
+</StackLayout>
+<GridLayout ActionBarTitle ToggleNavButton>
+    <RadListView [items]="posts">
+        <template tkListItemTemplate let-item="item">
+            <StackLayout class="listItemTemplateGrid" height="auto" rowHeight="50" >
+                <StackLayout class="authorCell" orientation="horizontal">
+                    <Image [src]="'~/shared/' + item.author.avatar" height="50" width="50" style="border-radius: 25px"></Image>
+                    <StackLayout class="authorDetailsCell" orientation="vertical">
+                        <Label class="authorLabel" [text]="item.author.firstName + item.author.lastName"></Label>
+                        <Label class="pubDateLabel" [text]="item.publicationDate | fromNow"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <Label (tap)="goToDetail(item)" class="cellLabel" textWrap="true" [text]="item.title" style="font-weight: bold; font-size: 32px"></Label>
+                <Image [src]="'~/shared/' + item.media" stretch="aspectFit" class="cellImage"></Image>
+                <StackLayout verticalAlignment="bottom">
+                    <StackLayout class="labelsStackLayout">
+                        <Label class="introLabel" textWrap="true" [text]="item.intro"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </template>
+    </RadListView>
+</GridLayout>
