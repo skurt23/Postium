@@ -21,6 +21,10 @@ Para poder usar la app, primero tienes que instalar Nativescript CLI, como indic
 
   ```tns livesync android --emulator --watch```
   
+## Slide Menu
+
+Si realizas un swipe de izquierda a derecha podrás visualizar el menú, cuesta un poco en el simulador.
+  
 ## Proximas actualizaciones
 
 * Arreglar la versión de Android para que funciona
